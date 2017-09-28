@@ -2,16 +2,25 @@
 <html>
 <head>
 	<title>Iframe Test</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container grid">
+<div class="container1 grid">
 	<form>
-		<h2>HTML</h2>
+		<h3>WIDGETS</h3>
+		<div class="widgets">
+				<div id="draggable" class="widget ui-widget-content">1</div>
+				<div class="widget">2</div>
+				<div class="widget">3</div>
+				<div class="widget">4</div>
+		</div>
+
+		<h3>HTML</h3>
 		<textarea id="html"></textarea>
 
-		<h2>CSS</h2>
+		<h3>CSS</h3>
 		<textarea id="css"></textarea>
 	</form>
 </div>
@@ -21,28 +30,40 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script src="http://localhost:35729/livereload.js"></script>
 
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script>
+
 (function() {
 	$('.grid').height( $(window).height() );
 
 	var	contents = $('iframe').contents(),
 		body = contents.find('body'),
+		head = contents.find('head')
 		styleTag = $('<style></style>').appendTo(contents.find('head'));
 
+		$( document ).ready(function() {
+			body.html("<h1>GI</h1>")
+		});
+
 	$('textarea').keyup(function() {
-		var $this = $(this);
-		if ( $this.attr('id') === 'html') {
-			body.html( $this.val() );
+		if ( $(this).attr('id') === 'html') {
+			body.html( $(this).val() );
 		} else {
-			// it had to be css
-			styleTag.text( $this.val() );
+			styleTag.text( $(this).val() );
 		}
 	});
 
 })();
+
+$( function() {
+    $( "#draggable" ).draggable().css('z-index', '6');
+  } );
 
 </script>
 
