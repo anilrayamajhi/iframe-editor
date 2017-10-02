@@ -19,6 +19,7 @@ textarea {
 .container1 {
   background: #343537;
   border-right: 1px solid white;
+  padding: 30px 50px;
 }
 
 h3, strong {
@@ -29,7 +30,6 @@ h3, strong {
   width: 40%;
   float: left;
   overflow: hidden;
-  padding: 30px 50px;
 }
 
 .output {
