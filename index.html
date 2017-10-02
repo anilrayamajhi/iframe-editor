@@ -3,39 +3,54 @@
 <head>
 	<title>Iframe Test</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
+	<style>
+  .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+  .toggle.ios .toggle-handle { border-radius: 20px; }
+</style>
 </head>
 <body>
 
 <div class="container1 grid">
+	<div class="">
+		<strong>Enable BootStrap</strong>&nbsp;&nbsp;&nbsp; <input class="chkbx_status" type="checkbox" data-toggle="toggle" data-size="small" data-onstyle="success" data-style="ios">
+	</div>
+
+
 	<form>
-		<h3>WIDGETS</h3>
+		<!-- <h3>WIDGETS</h3>
 		<div class="widgets">
 				<div id="draggable" class="widget ui-widget-content">1</div>
 				<div class="widget">2</div>
 				<div class="widget">3</div>
 				<div class="widget">4</div>
-		</div>
+		</div> -->
 
 		<h3>HTML</h3>
 		<textarea id="html"></textarea>
 
 		<h3>CSS</h3>
 		<textarea id="css"></textarea>
+
+		<h3>JS</h3>
+		<textarea id="js"></textarea>
 	</form>
 </div>
 
-<div class="output grid">
+<div class="output">
 	<iframe></iframe>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<script src="http://localhost:35729/livereload.js"></script>
+<!-- <script src="http://localhost:35729/livereload.js"></script> -->
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 <script>
 
@@ -47,10 +62,6 @@
 		head = contents.find('head')
 		styleTag = $('<style></style>').appendTo(contents.find('head'));
 
-		$( document ).ready(function() {
-			body.html("<h1>GI</h1>")
-		});
-
 	$('textarea').keyup(function() {
 		if ( $(this).attr('id') === 'html') {
 			body.html( $(this).val() );
@@ -59,7 +70,17 @@
 		}
 	});
 
+	$('.chkbx_status').on('change', function(){
+		if($('.chkbx_status').is(':checked')) {
+			head.prepend( '<link id="bootstrap" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">' );
+		}else{
+			head.find('#bootstrap').remove();
+		}
+	})
+
 })();
+
+
 
 $( function() {
     $( "#draggable" ).draggable().css('z-index', '6');

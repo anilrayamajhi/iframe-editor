@@ -9,18 +9,24 @@ body {
 
 textarea {
   width: 100%;
-  height: 200px;
+  height: 250px;
   border-radius: 7px;
   border-color: #999;
+  background-color: #1d1f20;
+  color: #e3e3e3;
 }
 
 .container1 {
-  background: #ff6829;
+  background: #343537;
   border-right: 1px solid white;
 }
 
+h3, strong {
+  color: #cccccc
+}
+
 .grid {
-  width: 50%;
+  width: 40%;
   float: left;
   overflow: hidden;
   padding: 30px 50px;
