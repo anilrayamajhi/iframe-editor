@@ -11,7 +11,6 @@
 </style>
 </head>
 <body>
-
 <div class="container1 grid">
 	<div class="">
 		<strong>Enable BootStrap</strong>&nbsp;&nbsp;&nbsp; <input class="chkbx_status" type="checkbox" data-toggle="toggle" data-size="small" data-onstyle="success" data-style="ios">
@@ -42,8 +41,7 @@
 	<iframe class="grid"></iframe>
 </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script src="http://localhost:35729/livereload.js"></script>
@@ -72,11 +70,12 @@
 
 	$('.chkbx_status').on('change', function(){
 		if($('.chkbx_status').is(':checked')) {
-			head.prepend( '<link id="bootstrap" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">' );
-			body.append('<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></'+"script>");
-			body.append();
+			head.prepend( '<link class="bootstrap" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">' );
+			head.append('<script class="bootstrap" src="https://code.jquery.com/jquery-3.2.1.min.js"></'+'script>');
+			head.append('<script class="bootstrap" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></'+"script>");
 		}else{
-			head.find('#bootstrap').remove();
+			head.find('.bootstrap').remove();
+			body.find('.bootstrap').remove();
 		}
 	})
 
